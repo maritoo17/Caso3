@@ -27,4 +27,8 @@ public class Planta extends Organismo {
         }
     }
 
+    public void crecer() {
+        this.salud += 10;
+    }
+
 }

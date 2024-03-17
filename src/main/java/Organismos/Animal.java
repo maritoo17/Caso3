@@ -26,4 +26,14 @@ public class Animal extends Organismo{
             System.out.println("No puede predar, está muerto");
         }
     }
+
+    public Animal reproducirse() {
+        if (this.esReproductivo) {
+            System.out.println("Reproduciendo...");
+            return new Animal(this.posicionX, this.posicionY, this.salud, this.edad, this.esReproductivo, this.cantidadAlimento);
+        } else {
+            System.out.println("No es reproductivo");
+            return null;
+        }
+    }
 }
