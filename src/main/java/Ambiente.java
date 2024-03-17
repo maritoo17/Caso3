@@ -102,5 +102,4 @@ public class Ambiente {
         System.out.println ("Salud total del ecosistema: " + calcularSaludTotal(organismos));
         calcularTendenciasPoblacionales(organismos);
         }
-    }
 }
