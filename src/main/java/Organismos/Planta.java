@@ -17,4 +17,14 @@ public class Planta extends Organismo {
         System.out.println("Cantidad de fotosintesis: " + this.cantidadFotosintesis);
     }
 
+    public void polinizar (Planta planta){
+        if (this.salud > 0){
+            System.out.println("Polinizando...");
+            this.salud += planta.salud;
+            planta.salud = 0;
+        } else {
+            System.out.println("No puede polinizar, está muerto");
+        }
+    }
+
 }
