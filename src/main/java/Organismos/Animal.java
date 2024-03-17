@@ -16,4 +16,14 @@ public class Animal extends Organismo{
         super.mostrarEstado();
         System.out.println("Cantidad de alimento: " + this.cantidadAlimento);
     }
+
+    public void predar (Animal presa){
+        if (this.salud > 0){
+            System.out.println("Predando...");
+            this.salud += presa.salud;
+            presa.salud = 0;
+        } else {
+            System.out.println("No puede predar, está muerto");
+        }
+    }
 }
