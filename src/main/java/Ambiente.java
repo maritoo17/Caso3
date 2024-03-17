@@ -1,3 +1,5 @@
+import Organismos.*;
+
 public class Ambiente {
     private String clima;
     private String terreno;
@@ -32,5 +34,20 @@ public class Ambiente {
 
     public void setRecursosDisponibles(String recursosDisponibles) {
         this.recursosDisponibles = recursosDisponibles;
+    }
+
+    public void competirPorRecursos (Organismo organismo1, Organismo organismo2){
+        if (organismo1.getSalud() > 0 && organismo2.getSalud() > 0){
+            System.out.println("Competencia por recursos...");
+            if (organismo1.getSalud() > organismo2.getSalud()){
+                organismo1.setSalud(organismo1.getSalud() + organismo2.getSalud());
+                organismo2.setSalud(0);
+            } else {
+                organismo2.setSalud(organismo2.getSalud() + organismo1.getSalud());
+                organismo1.setSalud(0);
+            }
+        } else {
+            System.out.println("No pueden competir, uno de los dos está muerto");
+        }
     }
 }
