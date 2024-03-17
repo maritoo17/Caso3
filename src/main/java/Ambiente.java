@@ -75,4 +75,32 @@ public class Ambiente {
             }
         }
     }
+
+    public int calcularSaludTotal (List<Organismo> organismos){
+        int saludTotal = 0;
+        for (Organismo organismo : organismos) {
+            saludTotal += organismo.getSalud();
+        }
+        return saludTotal;
+    }
+
+    public void calcularTendenciasPoblacionales (List<Organismo> organismos){
+        int cantidadAnimales = 0;
+        int cantidadPlantas = 0;
+        for (Organismo organismo : organismos) {
+            if (organismo instanceof Animal){
+                cantidadAnimales++;
+            } else {
+                cantidadPlantas++;
+            }
+        }
+        System.out.println("Cantidad de animales: " + cantidadAnimales);
+        System.out.println("Cantidad de plantas: " + cantidadPlantas);
+    }
+
+    public void mostrarEstadisticasa (List<Organismo> organismos){
+        System.out.println ("Salud total del ecosistema: " + calcularSaludTotal(organismos));
+        calcularTendenciasPoblacionales(organismos);
+        }
+    }
 }
