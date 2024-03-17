@@ -20,6 +20,14 @@ public class Organismo {
         this.posicionY = y;
     }
 
+    public int getSalud() {
+        return salud;
+    }
+
+    public void setSalud(int salud) {
+        this.salud = salud;
+    }
+
     public void alimentar(int cantidad) {
         this.salud += cantidad;
     }
