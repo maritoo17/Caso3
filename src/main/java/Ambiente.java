@@ -1,3 +1,6 @@
+import java.util.List;
+import java.util.Random;
+
 import Organismos.*;
 
 public class Ambiente {
@@ -48,6 +51,28 @@ public class Ambiente {
             }
         } else {
             System.out.println("No pueden competir, uno de los dos está muerto");
+        }
+    }
+
+    public void eventoAleatorio (List<Organismo> organismos) {
+        Random random = new Random ();
+        for (Organismo organismo : organismos) {
+            int evento = random.nextInt(3);
+            switch (evento) {
+                case 0: //Desastre natural
+                    organismo.setSalud(organismo.getSalud() - 20);
+                    break;
+                case 1: //Enfermedad
+                    organismo.setSalud(organismo.getSalud() - 10);
+                    break;
+                case 2: //Cambio climático
+                    if ("caluroso".equals(this.clima)){
+                        organismo.setSalud(organismo.getSalud() - 5);
+                    } else {
+                        organismo.setSalud(organismo.getSalud() - 15);
+                    }
+                    break;
+            }
         }
     }
 }
