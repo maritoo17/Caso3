@@ -20,11 +20,6 @@ public abstract class Organismo {
     public abstract void envejecer();
 
 
-    public void mover(int x, int y) {
-        this.posicionX = x;
-        this.posicionY = y;
-    }
-
     public int getSalud() {
         return salud;
     }
