@@ -1,38 +1,30 @@
 package Entidades;
 
+import java.util.Random;
+
 public class Ambiente {
-    private String clima;
+    private String[] climas = {"Templado", "Tropical", "Desértico", "Polar", "Montañoso"};
+    private String climaActual;
     private String terreno;
     private int recursosDisponibles;
 
-    public Ambiente(String clima, String terreno, int recursosDisponibles) {
-        this.clima = clima;
+    public Ambiente(String climaInicial, String terreno, int recursosDisponibles) {
+        this.climaActual = climaInicial;
         this.terreno = terreno;
         this.recursosDisponibles = recursosDisponibles;
     }
 
-    public void cambiarAmbiente (String evento) {
-        switch (evento) {
-            case "lluvia":
-                this.clima = "lluvioso";
-                this.recursosDisponibles += 20;
-                break;
-            case "sequia":
-                this.clima = "seco";
-                this.recursosDisponibles -= 20;
-                break;
-            default:
-                System.out.println ("Evento no reconocido");
-                break;
-        }
+    public void cambiarClima () {
+        int indice = new Random().nextInt(climas.length);
+        this.climaActual = climas[indice];
     }
 
-    public String getClima() {
-        return clima;
+    public String getClimaActual() {
+        return climaActual;
     }
 
-    public void setClima(String clima) {
-        this.clima = clima;
+    public void setClimaActual(String climaActual) {
+        this.climaActual = climaActual;
     }
 
     public String getTerreno() {
