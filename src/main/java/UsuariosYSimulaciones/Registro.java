@@ -14,7 +14,7 @@ public class Registro {
         registro.add(resultado);
     }
 
-    public List<String> getRegistro() {
-        return registro;
+    public String obtenerRegistros() {
+        return String.join ("\n", this.registro);
     }
 }
