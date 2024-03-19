@@ -23,13 +23,13 @@ public class Ecosistema {
         boolean acceso = autentificacion.iniciarSesion(nombreUsuario, contraseña);
 
         if (acceso) {
-            Ambiente ambiente = new Ambiente("Templado", "Bosque", 100);
+            Ambiente ambiente = new Ambiente("Templado", "Bosque", 400);
 
             List<Animal> animales = new ArrayList<>();
-            animales.add(new Animal(5, 5, 80, 3, true, 30));
-            animales.add(new Animal(10, 10, 90, 5, true, 40));
+            animales.add(new Animal("Tigre", 10, 5, 100, 3, true, 100));
+            animales.add(new Animal("Mono", 5, 10, 90, 5, true, 100));
 
-            Planta planta = new Planta(0, 0, 70, 1, false, 5, 0.1);
+            Planta planta = new Planta("Margarita", 0, 0, 70, 1, true, 7, 0.05);
 
             CrecimientoYReproduccion crecimiento = new CrecimientoYReproduccion(2, 0.05);
             EventoAleatorio eventoAleatorio = new EventoAleatorio();
@@ -71,10 +71,16 @@ public class Ecosistema {
 
                             for (Animal animal : animales) {
                                 animal.mover();
+
+                                animal.comer(10);
+
                                 if (animal.getEnergia() > 50) {
-                                    Animal pareja = new Animal (0, 0, 100, 1, true, 50);
+                                    Animal pareja = new Animal ("Leon", 0, 5, 100, 4, true, 100);
                                     animal.reproducirse(pareja);
+                                    break;
                                 }
+
+                                animal.envejecer();
                             }
 
                             simulacion.presentarEstadisticas();
