@@ -17,7 +17,7 @@ public class Ambiente {
                 this.clima = "lluvioso";
                 this.recursosDisponibles += 20;
                 break;
-            case "sequía":
+            case "sequia":
                 this.clima = "seco";
                 this.recursosDisponibles -= 20;
                 break;
