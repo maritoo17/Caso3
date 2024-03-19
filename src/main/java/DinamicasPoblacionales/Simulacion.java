@@ -13,12 +13,12 @@ public class Simulacion {
     private int saludPromedio;
 
     public Simulacion(CrecimientoYReproduccion crecimientoYReproduccion, EventoAleatorio eventoAleatorio, List<Animal> animales, Ambiente ambiente) {
-        if (crecimientoYReproduccion == null || eventoAleatorio == null || animal == null || ambiente == null) {
+        if (crecimientoYReproduccion == null || eventoAleatorio == null || animales == null || ambiente == null) {
             throw new IllegalArgumentException("Los argumentos no pueden ser nulos");
         }
         this.crecimientoYReproduccion = crecimientoYReproduccion;
         this.eventoAleatorio = eventoAleatorio;
-        this.animal = animal;
+        this.animal = animales;
         this.ambiente = ambiente;
         this.poblacionAnterior = crecimientoYReproduccion.getPoblacion();
     }
