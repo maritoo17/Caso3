@@ -4,7 +4,7 @@ public class Planta extends Organismo {
     private int cantidadFotosintesis;
     private double tasaCrecimiento;
 
-    public Planta(int posicionX, int posicionY, int salud, int edad, boolean esReproductivo, int cantidadFotosintesis) {
+    public Planta(int posicionX, int posicionY, int salud, int edad, boolean esReproductivo, int cantidadFotosintesis, double tasaCrecimiento) {
         super(posicionX, posicionY, salud, edad, esReproductivo);
         this.cantidadFotosintesis = cantidadFotosintesis;
         this.tasaCrecimiento = tasaCrecimiento;
