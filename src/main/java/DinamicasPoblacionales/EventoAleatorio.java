@@ -14,6 +14,9 @@ public class EventoAleatorio {
     }
 
     public void aplicarEvento(String evento, Animal animal, Ambiente ambiente) {
+        if (animal == null || ambiente == null) {
+            throw new IllegalArgumentException("El animal y el ambiente no pueden ser nulos");
+        }
         switch (evento) {
             case "desastre natural":
                 animal.setSalud(animal.getSalud() - 10);
@@ -25,6 +28,8 @@ public class EventoAleatorio {
             case "cambio climático":
                 ambiente.setRecursosDisponibles(ambiente.getRecursosDisponibles() - 30);
                 break;
+            default:
+                throw new IllegalArgumentException("Evento no válido");
         }
     }
 }
