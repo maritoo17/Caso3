@@ -30,7 +30,7 @@ public class Usuario {
     private static byte[] hashContraseña(final char[] contraseña, final byte[] sal) throws NoSuchAlgorithmException, InvalidKeySpecException {
         PBEKeySpec spec = new PBEKeySpec(contraseña, sal, 65536, 128);
         Arrays.fill(contraseña, Character.MIN_VALUE);
-        SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+        SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
         return skf.generateSecret(spec).getEncoded();
     }
 
