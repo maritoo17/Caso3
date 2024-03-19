@@ -28,6 +28,9 @@ public class EventoAleatorio {
             case "cambio climático":
                 ambiente.setRecursosDisponibles(ambiente.getRecursosDisponibles() - 30);
                 break;
+            case "cambio de clima":
+                ambiente.cambiarClima();
+                break;
             default:
                 throw new IllegalArgumentException("Evento no válido");
         }
