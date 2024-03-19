@@ -5,8 +5,8 @@ import java.util.Random;
 public class Animal extends Organismo {
     private double energia;
 
-    public Animal(int posicionX, int posicionY, int salud, int edad, boolean esReproductivo, int cantidadAlimento) {
-        super(posicionX, posicionY, salud, edad, esReproductivo);
+    public Animal(String nombre, int posicionX, int posicionY, int salud, int edad, boolean esReproductivo, int cantidadAlimento) {
+        super (posicionX, posicionY, salud, edad, esReproductivo, nombre);
         this.energia = cantidadAlimento;
     }
 
@@ -23,7 +23,7 @@ public class Animal extends Organismo {
         if (this.esReproductivo && this.energia > 50 && pareja instanceof Animal) {
             Animal parejaAnimal = (Animal) pareja;
             if (parejaAnimal.esReproductivo && parejaAnimal.getEnergia() > 50) {
-                Animal nuevoAnimal = new Animal(0,0,100,1,false,100);
+                Animal nuevoAnimal = new Animal("Tigre",0,0,100,3,true,100);
 
                 this.energia -= 25;
                 parejaAnimal.setEnergia(parejaAnimal.getEnergia() - 25);
