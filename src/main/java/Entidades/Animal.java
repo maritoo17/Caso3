@@ -45,4 +45,20 @@ public class Animal extends Organismo {
     public void setEnergia(double energia) {
         this.energia = energia;
     }
+
+    public int getPosicionX() {
+        return posicionX;
+    }
+
+    public int getPosicionY() {
+        return posicionY;
+    }
+
+    public void setPosicionX(int posicionX) {
+        this.posicionX = posicionX;
+    }
+
+    public void setPosicionY(int posicionY) {
+        this.posicionY = posicionY;
+    }
 }
