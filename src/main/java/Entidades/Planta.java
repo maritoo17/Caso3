@@ -38,4 +38,12 @@ public class Planta extends Organismo {
             this.esReproductivo = true;
         }
     }
+
+    public int getPosicionX() {
+        return posicionX;
+    }
+
+    public int getPosicionY() {
+        return posicionY;
+    }
 }
