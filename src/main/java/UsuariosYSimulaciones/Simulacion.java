@@ -18,4 +18,8 @@ public class Simulacion {
     public String obtenerResultados() {
         return "Resultados de la simulación: " + this.estado;
     }
+
+    public double obtenerDatos() {
+        return 10.0;
+    }
 }

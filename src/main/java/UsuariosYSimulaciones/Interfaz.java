@@ -45,8 +45,8 @@ public class Interfaz {
             public void actionPerformed(ActionEvent e) {
                 try {
                     if (usuario.verificarContraseña(new String(passwordField.getPassword()))) {
-                        // Iniciar la simulación
-                        // Guardar los resultados y configuraciones en el registro
+                        simulacion.iniciarSimulacion();
+                        resultArea.append("Simulación iniciada.\n");
                     } else {
                         JOptionPane.showMessageDialog(frame, "Contraseña incorrecta");
                     }
@@ -56,11 +56,27 @@ public class Interfaz {
             }
         });
 
+        stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                simulacion.ejecutarSimulacion();
+                resultArea.append("Simulación detenida.\n");
+                resultArea.append(simulacion.obtenerResultados() + "\n");
+            }
+        });
+
         frame.add(panel);
         frame.setSize(400, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
-}
 
+    public static void main(String[] args) {
+        try {
+            new Interfaz();
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+            e.printStackTrace();
+        }
+    }
+}
 
