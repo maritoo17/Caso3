@@ -2,7 +2,7 @@ package Entidades;
 
 import java.util.Random;
 
-public abstract class Animal extends Organismo {
+public class Animal extends Organismo {
     private double energia;
 
     public Animal(int posicionX, int posicionY, int salud, int edad, boolean esReproductivo, int cantidadAlimento) {
