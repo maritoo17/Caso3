@@ -27,15 +27,12 @@ public class Ecosistema {
 
             List<Animal> animales = new ArrayList<>();
             animales.add(new Animal("Tigre", 10, 5, 100, 3, true, 100));
-            animales.add(new Animal("Elefante", 0, 0, 80, 7, true, 100));
             animales.add(new Animal("Leon", 0, 5, 100, 4, true, 100));
             animales.add(new Animal("Cebra", 5, 0, 100, 2, true, 100));
 
             List<Planta> plantas = new ArrayList<>();
             plantas.add(new Planta("Margarita", 0, 0, 70, 1, true, 7, 0.05));
             plantas.add(new Planta("Girasol", 0, 0, 70, 1, true, 7, 0.05));
-            plantas.add(new Planta("Rosa", 0, 0, 70, 1, true, 7, 0.05));
-            plantas.add(new Planta("Tulipán", 0, 0, 70, 1, true, 7, 0.05));
 
             CrecimientoYReproduccion crecimiento = new CrecimientoYReproduccion(2, 0.05);
             EventoAleatorio eventoAleatorio = new EventoAleatorio();
