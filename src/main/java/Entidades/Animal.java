@@ -23,8 +23,6 @@ public class Animal extends Organismo {
         if (this.esReproductivo && this.energia > 50 && pareja instanceof Animal) {
             Animal parejaAnimal = (Animal) pareja;
             if (parejaAnimal.esReproductivo && parejaAnimal.getEnergia() > 50) {
-                Animal nuevoAnimal = new Animal("Tigre",0,0,100,3,true,100);
-
                 this.energia -= 25;
                 parejaAnimal.setEnergia(parejaAnimal.getEnergia() - 25);
             }
