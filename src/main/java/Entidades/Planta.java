@@ -26,7 +26,6 @@ public class Planta extends Organismo {
     @Override
     public void reproducirse (Organismo pareja) {
         if (this.esReproductivo && this.salud > 50) {
-            System.out.println("Reproduciendo...");
         }
     }
 
