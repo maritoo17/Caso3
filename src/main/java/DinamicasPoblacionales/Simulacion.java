@@ -25,8 +25,16 @@ public class Simulacion {
 
     public void simular() {
         String evento = eventoAleatorio.generarEvento();
+        String mensajeEvento = "";
         for (Animal animal : animal) {
-            eventoAleatorio.aplicarEvento(evento, animal, ambiente);
+            if (mensajeEvento.isEmpty()) {
+                mensajeEvento = eventoAleatorio.aplicarEvento(evento, animal, ambiente);
+            } else {
+                eventoAleatorio.aplicarEvento(evento, animal, ambiente);
+            }
+        }
+        if (!mensajeEvento.isEmpty()) {
+            System.out.println(mensajeEvento);
         }
         ambiente.cambiarClima();
         crecimientoYReproduccion.crecerPoblacion();
@@ -34,10 +42,14 @@ public class Simulacion {
 
     public void calcularEstadisticas() {
         int saludTotal = 0;
-        for (Animal animal : animal) {
-            saludTotal += animal.getSalud();
+        if (!animal.isEmpty()) {
+            for (Animal animal : animal) {
+                saludTotal += animal.getSalud();
         }
-        saludPromedio = saludTotal / animal.size();
+            saludPromedio = saludTotal / animal.size();
+        } else {
+            saludPromedio = 0;
+        }
         int poblacionActual = crecimientoYReproduccion.getPoblacion();
         String tendenciaPoblacional = (poblacionActual > poblacionAnterior) ? "creciente" : "decreciente";
         poblacionAnterior = poblacionActual;
