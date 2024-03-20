@@ -81,6 +81,7 @@ public class Ecosistema {
                             for (Animal animal : animales) {
                                 animal.mover();
                                 System.out.println(animal.getNombre() + " se movió a la posición (" + animal.getPosicionX() + ", " + animal.getPosicionY() + ")");
+
                                 animal.comer(10);
                                 System.out.println(animal.getNombre() + " ha comido y ha recuperado energía");
 
@@ -94,9 +95,11 @@ public class Ecosistema {
 
 
                             for (Planta planta : plantas) {
-                                planta.mover();
                                 planta.envejecer();
+                                System.out.println(planta.getNombre() + " ha envejecido a " + planta.getEdad() + " días.");
+
                                 planta.reproducirse(planta);
+                                System.out.println(planta.getNombre() + " intenta reproducirse.");
                             }
 
                             simulacion.presentarEstadisticas();
