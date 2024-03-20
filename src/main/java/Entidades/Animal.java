@@ -27,7 +27,7 @@ public class Animal extends Organismo {
             if (parejaAnimal.esReproductivo && parejaAnimal.getEnergia() > 50) {
                 this.energia -= 25;
                 parejaAnimal.setEnergia(parejaAnimal.getEnergia() - 25);
-                crecimiento.setPoblacion(crecimiento.getPoblacion() + 1);
+                crecimiento.setHaHabidoReproduccion(true);
             }
         }
     }

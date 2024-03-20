@@ -34,7 +34,7 @@ public class Ecosistema {
             plantas.add(new Planta("Margarita", 0, 0, 70, 1, true, 7, 0.05));
             plantas.add(new Planta("Girasol", 0, 0, 70, 1, true, 7, 0.05));
 
-            CrecimientoYReproduccion crecimiento = new CrecimientoYReproduccion(2, 0.05);
+            CrecimientoYReproduccion crecimiento = new CrecimientoYReproduccion(2, 0.05, false);
             EventoAleatorio eventoAleatorio = new EventoAleatorio();
 
             Simulacion simulacion = new Simulacion(crecimiento, eventoAleatorio, animales, ambiente);

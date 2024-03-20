@@ -28,7 +28,7 @@ public class Planta extends Organismo {
     @Override
     public void reproducirse (Organismo pareja, CrecimientoYReproduccion crecimiento) {
         if (this.esReproductivo && this.salud > 50) {
-            crecimiento.setPoblacion((crecimiento.getPoblacion() + 1));
+            crecimiento.setHaHabidoReproduccion(true);
         }
     }
 
