@@ -61,6 +61,7 @@ public class Simulacion {
         System.out.println("Tendencia poblacional: " + ((crecimientoYReproduccion.getPoblacion() > poblacionAnterior) ? "creciente" : "decreciente"));
         System.out.println("Recursos disponibles en el ambiente: " + ambiente.getRecursosDisponibles() + "\n");
         crecimientoYReproduccion.setHaHabidoReproduccion(false);
+        poblacionAnterior = crecimientoYReproduccion.getPoblacion();
     }
 
     public void reset() {
