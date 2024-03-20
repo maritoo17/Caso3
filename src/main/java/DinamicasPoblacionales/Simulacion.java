@@ -50,9 +50,9 @@ public class Simulacion {
         } else {
             saludPromedio = 0;
         }
-        int poblacionActual = crecimientoYReproduccion.getPoblacion();
-        String tendenciaPoblacional = (poblacionActual > poblacionAnterior) ? "creciente" : "decreciente";
-        poblacionAnterior = poblacionActual;
+
+        String tendenciaPoblacional = crecimientoYReproduccion.getHaHabidoReproduccion() ? "creciente" : "decreciente";
+        poblacionAnterior = crecimientoYReproduccion.getPoblacion();
     }
 
     public void presentarEstadisticas() {
