@@ -59,7 +59,7 @@ public class Simulacion {
         calcularEstadisticas();
         System.out.println("Salud promedio de los animales: " + saludPromedio);
         System.out.println("Tendencia poblacional: " + ((crecimientoYReproduccion.getPoblacion() > poblacionAnterior) ? "creciente" : "decreciente"));
-        System.out.println("Recursos disponibles en el ambiente: " + ambiente.getRecursosDisponibles());
+        System.out.println("Recursos disponibles en el ambiente: " + ambiente.getRecursosDisponibles() + "\n");
     }
 
     public void reset() {

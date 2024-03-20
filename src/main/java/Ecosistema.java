@@ -51,24 +51,25 @@ public class Ecosistema {
                     case 1:
                         System.out.println("Animales:");
                         for (Animal animal : animales) {
-                            System.out.println(animal.getNombre() + " en posición (" + animal.getPosicionX() + ", " + animal.getPosicionY() + ") con salud " + animal.getSalud());
+                            System.out.println(animal.getNombre() + " en posición (" + animal.getPosicionX() + ", " + animal.getPosicionY() + ") con salud " + animal.getSalud() + "\n");
                         }
+                        System.out.println("\nPlantas:");
                         for (Planta planta : plantas) {
-                            System.out.println(planta.getNombre() + " en posición (" + planta.getPosicionX() + ", " + planta.getPosicionY() + ") con salud " + planta.getSalud());
+                            System.out.println(planta.getNombre() + " en posición (" + planta.getPosicionX() + ", " + planta.getPosicionY() + ") con salud " + planta.getSalud() + "\n");
                         }
                         break;
                     case 2:
                         int días = 10;
                         Random random = new Random();
                         for (int i = 0; i < días; i++ ) {
-                            System.out.println("Día " + (i + 1));
+                            System.out.println("Día " + (i + 1) + "\n");
 
                             ambiente.cambiarClima();
-                            System.out.println("Clima actual: " + ambiente.getClimaActual());
+                            System.out.println("Clima actual: " + ambiente.getClimaActual() + "\n");
 
                             if (random.nextDouble() < 0.3) {
                                 String evento = eventoAleatorio.generarEvento();
-                                System.out.println("Evento: " + evento);
+                                System.out.println("Evento: " + evento + "\n");
                                 for (Animal animal : animales) {
                                     eventoAleatorio.aplicarEvento(evento, animal, ambiente);
                                 }
@@ -76,7 +77,7 @@ public class Ecosistema {
                                 for (Animal animal : animales) {
                                     if (random.nextDouble() < 0.7) {
                                         animal.mover();
-                                    System.out.println(animal.getNombre() + " se movió a la posición (" + animal.getPosicionX() + ", " + animal.getPosicionY() + ")");
+                                    System.out.println(animal.getNombre() + " se movió a la posición (" + animal.getPosicionX() + ", " + animal.getPosicionY() + ")\n");
                                 }
 
                                 if (random.nextDouble() < 0.5) {
@@ -84,21 +85,21 @@ public class Ecosistema {
                                     System.out.println(animal.getNombre() + " ha comido y ha recuperado energía");
                                 }
                                     if (animal.getEnergia() > 50 && random.nextDouble() < 0.2) {
-                                        System.out.println(animal.getNombre() + " intenta reproducirse.");
+                                        System.out.println(animal.getNombre() + " intenta reproducirse.\n");
                                     }
 
                                     animal.envejecer();
-                                    System.out.println(animal.getNombre() + " ha envejecido a " + animal.getEdad() + " años.");
+                                    System.out.println(animal.getNombre() + " ha envejecido a " + animal.getEdad() + " años.\n");
                                 }
 
 
                                 for (Planta planta : plantas) {
                                     planta.envejecer();
-                                    System.out.println(planta.getNombre() + " ha envejecido a " + planta.getEdad() + " días.");
+                                    System.out.println(planta.getNombre() + " ha envejecido a " + planta.getEdad() + " días.\n");
 
                                     if (random.nextDouble() < 0.3){
                                     planta.reproducirse(planta);
-                                    System.out.println(planta.getNombre() + " intenta reproducirse.");
+                                    System.out.println(planta.getNombre() + " intenta reproducirse.\n");
                                 }
                             }
 
@@ -110,7 +111,7 @@ public class Ecosistema {
                         continuar = false;
                         break;
                     default:
-                        System.out.println("Opción no válida. Por favor, elija una opción del 1 al 3.");
+                        System.out.println("Opción no válida. Por favor, elija una opción del 1 al 3.\n");
                 }
             }
         } else {
