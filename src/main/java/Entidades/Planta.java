@@ -1,5 +1,7 @@
 package Entidades;
 
+import DinamicasPoblacionales.CrecimientoYReproduccion;
+
 public class Planta extends Organismo {
     private int cantidadFotosintesis;
     private double tasaCrecimiento;
@@ -24,7 +26,7 @@ public class Planta extends Organismo {
     }
 
     @Override
-    public void reproducirse (Organismo pareja) {
+    public void reproducirse (Organismo pareja, CrecimientoYReproduccion crecimiento) {
         if (this.esReproductivo && this.salud > 50) {
         }
     }
@@ -44,5 +46,8 @@ public class Planta extends Organismo {
 
     public int getPosicionY() {
         return posicionY;
+    }
+
+    public void reproducirse(Planta planta) {
     }
 }

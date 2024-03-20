@@ -1,5 +1,7 @@
 package Entidades;
 
+import DinamicasPoblacionales.CrecimientoYReproduccion;
+
 import java.util.Random;
 
 public class Animal extends Organismo {
@@ -19,12 +21,13 @@ public class Animal extends Organismo {
     }
 
     @Override
-    public void reproducirse(Organismo pareja) {
+    public void reproducirse(Organismo pareja, CrecimientoYReproduccion crecimiento) {
         if (this.esReproductivo && this.energia > 50 && pareja instanceof Animal) {
             Animal parejaAnimal = (Animal) pareja;
             if (parejaAnimal.esReproductivo && parejaAnimal.getEnergia() > 50) {
                 this.energia -= 25;
                 parejaAnimal.setEnergia(parejaAnimal.getEnergia() - 25);
+                crecimiento.setPoblacion(crecimiento.getPoblacion() + 1);
             }
         }
     }

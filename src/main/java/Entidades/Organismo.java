@@ -1,5 +1,7 @@
 package Entidades;
 
+import DinamicasPoblacionales.CrecimientoYReproduccion;
+
 public abstract class Organismo {
     protected String nombre;
     protected int posicionX;
@@ -18,7 +20,7 @@ public abstract class Organismo {
     }
 
     public abstract void mover();
-    public abstract void reproducirse(Organismo pareja);
+    public abstract void reproducirse(Organismo pareja, CrecimientoYReproduccion crecimiento);
     public abstract void envejecer();
 
 
