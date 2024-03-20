@@ -19,7 +19,7 @@ public class Ecosistema {
         String contraseña = scanner.nextLine();
 
         Autentificacion autentificacion = new Autentificacion();
-        autentificacion.registrarUsuario("admin", "adminpass", "admin");
+        autentificacion.registrarUsuario("Rubén", "Jordan1", "admin");
         boolean acceso = autentificacion.iniciarSesion(nombreUsuario, contraseña);
 
         if (acceso) {
@@ -28,8 +28,18 @@ public class Ecosistema {
             List<Animal> animales = new ArrayList<>();
             animales.add(new Animal("Tigre", 10, 5, 100, 3, true, 100));
             animales.add(new Animal("Mono", 5, 10, 90, 5, true, 100));
+            animales.add(new Animal("Elefante", 0, 0, 80, 7, true, 100));
+            animales.add(new Animal("Leon", 0, 5, 100, 4, true, 100));
+            animales.add(new Animal("Cebra", 5, 0, 100, 2, true, 100));
+            animales.add(new Animal("Jirafa", 0, 10, 100, 6, true, 100));
 
-            Planta planta = new Planta("Margarita", 0, 0, 70, 1, true, 7, 0.05);
+            List<Planta> plantas = new ArrayList<>();
+            plantas.add(new Planta("Margarita", 0, 0, 70, 1, true, 7, 0.05));
+            plantas.add(new Planta("Girasol", 0, 0, 70, 1, true, 7, 0.05));
+            plantas.add(new Planta("Rosa", 0, 0, 70, 1, true, 7, 0.05));
+            plantas.add(new Planta("Tulipán", 0, 0, 70, 1, true, 7, 0.05));
+            plantas.add(new Planta("Orquídea", 0, 0, 70, 1, true, 7, 0.05));
+            plantas.add(new Planta("Lirio", 0, 0, 70, 1, true, 7, 0.05));
 
             CrecimientoYReproduccion crecimiento = new CrecimientoYReproduccion(2, 0.05);
             EventoAleatorio eventoAleatorio = new EventoAleatorio();
@@ -48,9 +58,11 @@ public class Ecosistema {
                     case 1:
                         System.out.println("Animales:");
                         for (Animal animal : animales) {
-                            System.out.println("Animal en posición (" + animal.getPosicionX() + ", " + animal.getPosicionY() + ") con salud " + animal.getSalud());
+                            System.out.println(animal.getNombre() + " en posición (" + animal.getPosicionX() + ", " + animal.getPosicionY() + ") con salud " + animal.getSalud());
                         }
-                        System.out.println("Planta en posición (" + planta.getPosicionX() + ", " + planta.getPosicionY() + ") con salud " + planta.getSalud());
+                        for (Planta planta : plantas) {
+                            System.out.println(planta.getNombre() + " en posición (" + planta.getPosicionX() + ", " + planta.getPosicionY() + ") con salud " + planta.getSalud());
+                        }
                         break;
                     case 2:
                         int días = 10;
@@ -61,30 +73,34 @@ public class Ecosistema {
                             ambiente.cambiarClima();
                             System.out.println("Clima actual: " + ambiente.getClimaActual());
 
-                            if (random.nextDouble() < 0.5) {
-                                String evento = eventoAleatorio.generarEvento();
-                                System.out.println("Evento: " + evento);
-                                for (Animal animal : animales) {
-                                    eventoAleatorio.aplicarEvento(evento, animal, ambiente);
-                                }
+                            String evento = eventoAleatorio.generarEvento();
+                            System.out.println("Evento: " + evento);
+
                             }
 
                             for (Animal animal : animales) {
                                 animal.mover();
-
+                                System.out.println(animal.getNombre() + " se movió a la posición (" + animal.getPosicionX() + ", " + animal.getPosicionY() + ")");
                                 animal.comer(10);
+                                System.out.println(animal.getNombre() + " ha comido y ha recuperado energía");
 
                                 if (animal.getEnergia() > 50) {
-                                    Animal pareja = new Animal ("Leon", 0, 5, 100, 4, true, 100);
-                                    animal.reproducirse(pareja);
-                                    break;
-                                }
+                                    System.out.println(animal.getNombre() + " intenta reproducirse.");
+                            }
 
                                 animal.envejecer();
+                                System.out.println(animal.getNombre() + " ha envejecido a " + animal.getEdad() + " años.");
+                            }
+
+
+                            for (Planta planta : plantas) {
+                                planta.mover();
+                                planta.envejecer();
+                                planta.reproducirse(planta);
                             }
 
                             simulacion.presentarEstadisticas();
-                        }
+
                         simulacion.reset();
                         break;
                     case 3:
