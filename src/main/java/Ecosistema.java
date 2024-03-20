@@ -102,12 +102,13 @@ public class Ecosistema {
                                     if (random.nextDouble() < 0.3){
                                         Planta pareja = plantas.get(random.nextInt(plantas.size()));
                                         planta.reproducirse(pareja, crecimiento);
-                                        planta.reproducirse(planta);
                                         System.out.println(planta.getNombre() + " intenta reproducirse.\n");
                                 }
                             }
 
-                            simulacion.presentarEstadisticas();
+                                simulacion.presentarEstadisticas();
+                                crecimiento.setHaHabidoReproduccion(false);
+
                         }
                         simulacion.reset();
                         break;
