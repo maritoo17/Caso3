@@ -85,6 +85,8 @@ public class Ecosistema {
                                     System.out.println(animal.getNombre() + " ha comido y ha recuperado energía");
                                 }
                                     if (animal.getEnergia() > 50 && random.nextDouble() < 0.2) {
+                                        Animal pareja = animales.get(random.nextInt(animales.size()));
+                                        animal.reproducirse(pareja, crecimiento);
                                         System.out.println(animal.getNombre() + " intenta reproducirse.\n");
                                     }
 
@@ -98,8 +100,10 @@ public class Ecosistema {
                                     System.out.println(planta.getNombre() + " ha envejecido a " + planta.getEdad() + " días.\n");
 
                                     if (random.nextDouble() < 0.3){
-                                    planta.reproducirse(planta);
-                                    System.out.println(planta.getNombre() + " intenta reproducirse.\n");
+                                        Planta pareja = plantas.get(random.nextInt(plantas.size()));
+                                        planta.reproducirse(pareja, crecimiento);
+                                        planta.reproducirse(planta);
+                                        System.out.println(planta.getNombre() + " intenta reproducirse.\n");
                                 }
                             }
 
